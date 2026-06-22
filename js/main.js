@@ -529,33 +529,6 @@
   }
 
   /* ========================================================
-     CUSTOM CURSOR — white dot (mix-blend), grows on interactive
-     ======================================================== */
-  function initCursor() {
-    if (REDUCED || window.matchMedia("(hover: none)").matches || !window.gsap) return;
-    const dot = document.createElement("div");
-    dot.className = "cursor"; dot.setAttribute("aria-hidden", "true");
-    document.body.appendChild(dot);
-    html.classList.add("has-cursor");
-    let mx = window.innerWidth / 2, my = window.innerHeight / 2, cx = mx, cy = my;
-    window.addEventListener("mousemove", (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
-    gsap.ticker.add(() => {
-      cx += (mx - cx) * 0.22; cy += (my - cy) * 0.22;
-      dot.style.transform = `translate(${cx.toFixed(1)}px, ${cy.toFixed(1)}px) translate(-50%, -50%)`;
-    });
-    const hoverSel = 'a, button, [data-magnetic], .menu-link, .svc-row, .proj, .chip, [role="button"]';
-    const fieldSel = "input, textarea, select";
-    document.addEventListener("mouseover", (e) => {
-      if (e.target.closest(fieldSel)) { dot.style.opacity = "0"; return; }
-      dot.style.opacity = "";
-      if (e.target.closest(hoverSel)) dot.classList.add("is-hover");
-    });
-    document.addEventListener("mouseout", (e) => {
-      if (e.target.closest(hoverSel)) dot.classList.remove("is-hover");
-    });
-  }
-
-  /* ========================================================
      HORIZONTAL WORK GALLERY — pin + scrub (vertical → sideways)
      ======================================================== */
   function initGallery() {
@@ -614,7 +587,6 @@
   function boot() {
     initHeroWordmark();
     initAscii();
-    initCursor();
     initGallery();
     initBalloon();
     initContactForm();

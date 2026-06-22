@@ -525,20 +525,6 @@ section { position: relative; }
    REDUCED MOTION + NO-WEBGL FALLBACKS
    ============================================================ */
 /* ============================================================
-   CUSTOM CURSOR
-   ============================================================ */
-.has-cursor, .has-cursor * { cursor: none; }
-.has-cursor input, .has-cursor textarea, .has-cursor select { cursor: text; }
-.cursor {
-  position: fixed; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%;
-  background: #fff; mix-blend-mode: difference; pointer-events: none; z-index: 9999;
-  will-change: transform; margin: 0;
-  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), opacity 0.25s;
-}
-.cursor.is-hover { width: 46px; height: 46px; }
-@media (hover: none) { .cursor { display: none; } }
-
-/* ============================================================
    HORIZONTAL WORK GALLERY (reuses .proj cards)
    ============================================================ */
 .gallery { position: relative; overflow: hidden; }
