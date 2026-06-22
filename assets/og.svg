@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="g1" cx="20%" cy="12%" r="60%">
+      <stop offset="0%" stop-color="#FBFCFB"/>
+      <stop offset="100%" stop-color="#FBFCFB" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="88%" cy="24%" r="55%">
+      <stop offset="0%" stop-color="#A6D400" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#A6D400" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="50%" cy="118%" r="70%">
+      <stop offset="0%" stop-color="#E2E6E2"/>
+      <stop offset="100%" stop-color="#E2E6E2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bod" cx="38%" cy="32%" r="75%">
+      <stop offset="0%" stop-color="#FCFEF5"/>
+      <stop offset="40%" stop-color="#C6CCC7"/>
+      <stop offset="80%" stop-color="#888F8A"/>
+      <stop offset="100%" stop-color="#54595A"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#F4F5F4"/>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+  <rect width="1200" height="630" fill="url(#g3)"/>
+
+  <g transform="translate(905,150)">
+    <path d="M90 0C50 0 22 30 22 70c0 44 33 72 59 86l-4 13h26l-4-13c26-14 59-42 59-86C158 30 130 0 90 0Z" fill="url(#bod)"/>
+    <path d="M90 0C50 0 22 30 22 70c0 44 33 72 59 86" stroke="#A6D400" stroke-width="3" fill="none" opacity="0.85"/>
+    <ellipse cx="62" cy="50" rx="16" ry="24" fill="#FFFFFF" opacity="0.5" transform="rotate(-18 62 50)"/>
+  </g>
+
+  <text x="90" y="360" font-family="'Schibsted Grotesk',Helvetica,Arial,sans-serif" font-size="150" font-weight="400" letter-spacing="-6" fill="#16181A">eventic</text>
+  <text x="96" y="430" font-family="'Schibsted Grotesk',Helvetica,Arial,sans-serif" font-size="30" font-weight="400" letter-spacing="1" fill="#565B58">Design for events.</text>
+  <text x="96" y="475" font-family="'Schibsted Grotesk',Helvetica,Arial,sans-serif" font-size="22" font-weight="500" letter-spacing="6" fill="#5E7A00">PURPOSE · CLARITY · IMPACT</text>
+
+  <rect x="90" y="540" width="180" height="1" fill="#16181A" opacity="0.18"/>
+  <text x="90" y="575" font-family="'Schibsted Grotesk',Helvetica,Arial,sans-serif" font-size="20" font-weight="500" letter-spacing="4" fill="#565B58">EVENTIC.DESIGN</text>
+</svg>
