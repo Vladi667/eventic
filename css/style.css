@@ -281,7 +281,7 @@ section { position: relative; }
 /* ============================================================
    HERO
    ============================================================ */
-.hero { height: 100svh; min-height: 640px; position: relative; overflow: hidden; }
+.hero { height: 100svh; min-height: 480px; position: relative; overflow: hidden; }
 /* cursor-reactive ASCII shader — the one signature. Radial mask vignettes the edges. */
 .ascii-bg {
   position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2;
@@ -293,7 +293,7 @@ section { position: relative; }
 .hero-frame {
   position: relative; z-index: 4; height: 100%;
   display: grid; grid-template-rows: auto 1fr auto;
-  padding: clamp(96px, 14vh, 150px) var(--gutter) clamp(1.6rem, 4vh, 3rem);
+  padding: clamp(84px, 12vh, 140px) var(--gutter) clamp(1.4rem, 3.5vh, 2.6rem);
 }
 .hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
 .hero-clock { display: flex; gap: clamp(0.8rem, 2vw, 1.6rem); }
@@ -306,7 +306,9 @@ section { position: relative; }
 .hero-bottom { position: relative; display: block; }
 .hero-logo-wrap { margin: 0; color: var(--ink); line-height: 0; display: block; }
 .hero-logo {
-  width: min(86vw, 1060px); height: auto; display: block;
+  /* width capped by viewport WIDTH and HEIGHT (aspect 3.64) so the giant
+     logo never gets clipped on short screens */
+  width: min(86vw, 1060px, calc(38svh * 3.64)); height: auto; display: block;
   overflow: visible; /* let the i-dot float above the viewBox */
 }
 .hero-logo .logo-word { will-change: transform; }
