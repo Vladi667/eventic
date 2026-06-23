@@ -359,11 +359,12 @@ section { position: relative; }
 /* hairline = animated top divider, OUT of the grid flow */
 .svc-row .hairline { position: absolute; top: 0; left: 0; }
 .svc-num { font-size: 0.8rem; color: var(--ink-faint); font-weight: 500; letter-spacing: 0.08em; padding-top: 0.55em; }
-.svc-title { font-weight: 400; letter-spacing: -0.02em; line-height: 1; font-size: clamp(1.6rem, 3.4vw, 2.8rem); transition: transform 0.5s var(--ease-out), color 0.4s; }
+.svc-title { display: flex; align-items: baseline; font-weight: 400; letter-spacing: -0.02em; line-height: 1; font-size: clamp(1.6rem, 3.4vw, 2.8rem); transition: color 0.4s; }
 .svc-desc { color: var(--ink-soft); font-size: 0.86rem; line-height: 1.6; padding-top: 0.5em; }
-.svc-row:hover .svc-title { transform: translateX(18px); color: var(--accent-ink); }
-.svc-row .arrow { position: absolute; left: -26px; opacity: 0; transition: all 0.5s var(--ease-out); color: var(--accent-ink); }
-.svc-row:hover .arrow { opacity: 1; left: 18px; }
+.svc-row:hover .svc-title { color: var(--accent-ink); }
+/* arrow reveals inline (width) and pushes the title right — no absolute/transform trap */
+.svc-row .arrow { display: inline-block; overflow: hidden; max-width: 0; margin-right: 0; opacity: 0; color: var(--accent-ink); transition: max-width 0.45s var(--ease-out), margin-right 0.45s var(--ease-out), opacity 0.35s; }
+.svc-row:hover .arrow { max-width: 1.5em; margin-right: 0.32em; opacity: 1; }
 @media (max-width: 760px) {
   .svc-row { grid-template-columns: 40px 1fr; row-gap: 1rem; }
   .svc-num { padding-top: 0.4em; }
