@@ -530,7 +530,7 @@ section { position: relative; }
 /* ============================================================
    HORIZONTAL WORK GALLERY (reuses .proj cards)
    ============================================================ */
-.gallery { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: center; }
+.gallery { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: center; padding-top: clamp(70px, 12vh, 150px); }
 .gallery-track { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 2.5rem); width: max-content; padding: clamp(1rem, 3vh, 2rem) var(--gutter); will-change: transform; }
 .gallery-track .proj { flex: 0 0 auto; width: clamp(280px, 42vw, 520px); }
 .gallery-track .proj.is-wide { width: clamp(280px, 42vw, 520px); }
