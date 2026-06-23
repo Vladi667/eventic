@@ -417,10 +417,10 @@ section { position: relative; }
 /* ============================================================
    WORK MARQUEE + ROWS
    ============================================================ */
-.marquee { overflow: hidden; border-block: 1px solid var(--glass-stroke); padding-block: clamp(1.4rem,3vh,2.2rem); white-space: nowrap; }
-.marquee-track { display: inline-flex; gap: 3.5rem; will-change: transform; }
-.marquee-track span { font-weight: 400; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -0.02em; color: var(--ink); display: inline-flex; align-items: center; gap: 3.5rem; }
-.marquee-track .sep { color: var(--accent-ink); font-size: 0.5em; }
+.marquee { overflow: hidden; border-block: 1px solid var(--glass-stroke); padding-block: clamp(0.9rem,1.8vh,1.3rem); white-space: nowrap; }
+.marquee-track { display: inline-flex; gap: 2rem; will-change: transform; }
+.marquee-track span { font-weight: 500; font-size: clamp(0.85rem, 1.4vw, 1.15rem); letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 2rem; }
+.marquee-track .sep { color: var(--accent-ink); font-size: 0.7em; }
 .marquee-track .ghost { color: transparent; -webkit-text-stroke: 1px var(--chrome); }
 
 .work-list { margin-top: clamp(3rem,7vh,6rem); }
