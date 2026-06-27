@@ -321,14 +321,17 @@ section { position: relative; }
 
 /* ============ CLOSING (one screen: "Let's build", then auto-swaps to "Send-off" and stays) ============ */
 .closing { position: relative; min-height: 100svh; overflow: hidden; }
+/* both panels anchor their content to the SAME top offset, so the label +
+   heading land in the exact same spot (panel A's button just hangs below) */
 .closing-panel {
-  position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
-  padding-inline: var(--gutter);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  position: absolute; inset: 0;
+  display: grid; align-content: start; justify-items: center; text-align: center;
+  padding: 34vh var(--gutter) 0;
+  transition: opacity 1.1s var(--ease-out), transform 1.1s var(--ease-out);
 }
 .closing-a { z-index: 1; }
-.closing-b { z-index: 2; opacity: 0; transform: translateY(26px); pointer-events: none; }
-.closing.show-b .closing-a { opacity: 0; transform: translateY(-26px); pointer-events: none; }
+.closing-b { z-index: 2; opacity: 0; transform: translateY(30px); pointer-events: none; }
+.closing.show-b .closing-a { opacity: 0; transform: translateY(-30px); pointer-events: none; }
 .closing.show-b .closing-b { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .closing-inner { display: flex; flex-direction: column; align-items: center; gap: clamp(1.2rem, 3vh, 2rem); }
 .finale-label { color: var(--accent-ink); }

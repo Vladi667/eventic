@@ -556,7 +556,7 @@
     const sec = document.querySelector("[data-closing]");
     if (!sec) return;
     let armed = false;
-    const reveal = () => { armed = true; io.disconnect(); setTimeout(() => sec.classList.add("show-b"), 2600); };
+    const reveal = () => { armed = true; io.disconnect(); setTimeout(() => sec.classList.add("show-b"), 1400); };
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting && !armed) reveal(); });
     }, { threshold: 0.6 });
