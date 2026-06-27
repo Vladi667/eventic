@@ -319,20 +319,20 @@ section { position: relative; }
   .hero-scroll { display: none; }
 }
 
-/* ============ CLOSING (Let's build → Send-off) ============ */
-.closing { position: relative; }
-.closing-panel { min-height: 78svh; display: grid; place-items: center; text-align: center; padding-inline: var(--gutter); }
+/* ============ CLOSING (one screen: "Let's build", then auto-swaps to "Send-off" and stays) ============ */
+.closing { position: relative; min-height: 100svh; overflow: hidden; }
+.closing-panel {
+  position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+  padding-inline: var(--gutter);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.closing-a { z-index: 1; }
+.closing-b { z-index: 2; opacity: 0; transform: translateY(26px); pointer-events: none; }
+.closing.show-b .closing-a { opacity: 0; transform: translateY(-26px); pointer-events: none; }
+.closing.show-b .closing-b { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .closing-inner { display: flex; flex-direction: column; align-items: center; gap: clamp(1.2rem, 3vh, 2rem); }
 .finale-label { color: var(--accent-ink); }
 .finale-line { max-width: 16ch; }
-/* JS-upgraded pinned overlay: panel B slides up from below and stays */
-.closing.closing--active { height: 100svh; overflow: hidden; }
-.closing.closing--active .closing-panel { position: absolute; inset: 0; min-height: 0; }
-.closing.closing--active .closing-b {
-  background:
-    radial-gradient(120% 90% at 50% 8%, var(--grad-a) 0%, transparent 60%),
-    var(--base);
-}
 .hero-tagline { margin-top: clamp(2rem, 4vh, 3rem); color: var(--ink-soft); max-width: 42ch; margin-inline: auto; }
 
 /* inner-page floating balloon accent (Services/Work/About/Contact heads) */

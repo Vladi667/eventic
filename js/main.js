@@ -549,23 +549,18 @@
   }
 
   /* ========================================================
-     CLOSING — "Let's build" pinned, "Send-off" slides up from
-     below (carousel) and stays
+     CLOSING — on arrival, show "Let's build", then after a few
+     seconds auto-swap to "Send-off" and stay (time-based, no scroll)
      ======================================================== */
   function initClosing() {
-    if (REDUCED || !window.gsap) return;
     const sec = document.querySelector("[data-closing]");
     if (!sec) return;
-    const a = sec.querySelector(".closing-a"), b = sec.querySelector(".closing-b");
-    if (!a || !b) return;
-    sec.classList.add("closing--active");
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.set(b, { yPercent: 100 });
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: sec, start: "top top", end: "+=120%", pin: true, scrub: 0.6, invalidateOnRefresh: true },
-    });
-    tl.to(a, { yPercent: -10, opacity: 0.35, ease: "none" }, 0)
-      .to(b, { yPercent: 0, ease: "none" }, 0);
+    let armed = false;
+    const reveal = () => { armed = true; io.disconnect(); setTimeout(() => sec.classList.add("show-b"), 2600); };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting && !armed) reveal(); });
+    }, { threshold: 0.6 });
+    io.observe(sec);
   }
 
   /* ========================================================
