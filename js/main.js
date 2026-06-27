@@ -549,6 +549,26 @@
   }
 
   /* ========================================================
+     CLOSING — "Let's build" pinned, "Send-off" slides up from
+     below (carousel) and stays
+     ======================================================== */
+  function initClosing() {
+    if (REDUCED || !window.gsap) return;
+    const sec = document.querySelector("[data-closing]");
+    if (!sec) return;
+    const a = sec.querySelector(".closing-a"), b = sec.querySelector(".closing-b");
+    if (!a || !b) return;
+    sec.classList.add("closing--active");
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.set(b, { yPercent: 100 });
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: sec, start: "top top", end: "+=120%", pin: true, scrub: 0.6, invalidateOnRefresh: true },
+    });
+    tl.to(a, { yPercent: -10, opacity: 0.35, ease: "none" }, 0)
+      .to(b, { yPercent: 0, ease: "none" }, 0);
+  }
+
+  /* ========================================================
      CONTACT FORM (backend-free → composes a mailto)
      ======================================================== */
   function initContactForm() {
@@ -588,6 +608,7 @@
     initHeroWordmark();
     initAscii();
     initGallery();
+    initClosing();
     initBalloon();
     initContactForm();
     (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => {
